@@ -6,7 +6,9 @@ use Aws\DynamoDb\Marshaler;
 
 $IAM_KEY = 'AKIAVLSEBUAJXLPCLWGM';
 $IAM_SECRET = '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';
-$p_id = $_GET["pid"];
+// $p_id = $_GET["pid"];
+$p_id = '(string)';
+
 
 $sdk = new Aws\Sdk([
     'region'   => 'cn-north-1',
@@ -53,18 +55,18 @@ try{
         
         
         foreach ($result['Items'] as $user) {
-            echo $marshaler->unmarshalValue($user['ID']) . ': ' .
-                $marshaler->unmarshalValue($user['ip']) . ': ' .
-                $marshaler->unmarshalValue($user['date']) . ': ' .
-                $marshaler->unmarshalValue($user['time']) . ': ' .
-                $marshaler->unmarshalValue($user['pname']) . 
-                 "\n";
+            // echo $marshaler->unmarshalValue($user['ID']) . ': ' .
+            //     $marshaler->unmarshalValue($user['ip']) . ': ' .
+            //     $marshaler->unmarshalValue($user['date']) . ': ' .
+            //     $marshaler->unmarshalValue($user['time']) . ': ' .
+            //     $marshaler->unmarshalValue($user['pname']) . 
+            //      "\n";
 
-                 $tmp1 = $marshaler->unmarshalValue($user['ID']);
-                 $tmp2 = $marshaler->unmarshalValue($user['ip']);
-                 $tmp3 = $marshaler->unmarshalValue($user['date']);
-                 $tmp4 = $marshaler->unmarshalValue($user['time']);
-                 $tmp5 = $marshaler->unmarshalValue($user['pname']);
+            $tmp1 = $marshaler->unmarshalValue($user['ID']);
+            $tmp2 = $marshaler->unmarshalValue($user['ip']);
+            $tmp3 = $marshaler->unmarshalValue($user['date']);
+            $tmp4 = $marshaler->unmarshalValue($user['time']);
+            $tmp5 = $marshaler->unmarshalValue($user['pname']);
         }
 
 
