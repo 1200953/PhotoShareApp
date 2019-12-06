@@ -6,10 +6,7 @@ use Aws\DynamoDb\Marshaler;
 
 $IAM_KEY = 'AKIAVLSEBUAJXLPCLWGM';
 $IAM_SECRET = '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';
-$yr = $_GET["yr"];
-$mth = $_GET["mth"];
-$day = $_GET["day"];
-
+$date = $_GET["date"];
 
 $sdk = new Aws\Sdk([
     'region'   => 'cn-north-1',
@@ -39,7 +36,7 @@ try{
 
     $eav = $marshaler->marshalJson('
     {
-        ":date" : "' .$day .'/'. $mth .'/' . $yr.'"' . '
+        ":date" : "' . $date .'"' . '
     }
     ');
 
